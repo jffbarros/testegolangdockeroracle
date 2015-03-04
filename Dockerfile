@@ -3,7 +3,7 @@
 FROM golang
 
 
-RUN sudo apt-get install pkg-config
+RUN apt-get install pkg-config
 
 #RUN go get -u github.com/mattn/go-oci8
 RUN go get github.com/mattn/go-sqlite3
