@@ -2,6 +2,7 @@
 # and a workspace (GOPATH) configured at /go.
 FROM golang
 
+RUN go get -u github.com/mattn/go-oci8
 RUN go get -u github.com/jffbarros/testegolangdockeroracle
 RUN go install -a github.com/jffbarros/testegolangdockeroracle
 
