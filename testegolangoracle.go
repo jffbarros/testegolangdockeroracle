@@ -1,67 +1,3 @@
-/*package main
-
-import (
-	"database/sql"
-	"fmt"
-	_ "github.com/mattn/go-oci8"
-	"html/template"
-	"log"
-	"net/http"
-	"os"
-)
-
-func main() {
-
-	os.Setenv("NLS_LANG", ".UTF8")
-	listaagentes := executa()
-
-	fs := http.FileServer(http.Dir("static"))
-	http.HandleFunc("/", serveTemplate)
-	log.Println("Listening...")
-	http.ListenAndServe(":3000", nil)
-
-}
-
-func serveTemplate(w http.ResponseWriter, r *http.Request) {
-	var tmpl1 = template.ParseFiles("teste.html")
-	tmpl1.ExecuteTemplate(nil)
-}
-
-func executa() string {
-	db, err := sql.Open("oci8", "system/manager@pc_joao/orc1")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	defer db.Close()
-
-	rows, err := db.Query("select agn_st_nome from mgglo.glo_agentes where agn_in_codigo <= 10 order by agn_in_codigo")
-
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	var agentes string
-
-	for rows.Next() {
-		var nome string
-		if err := rows.Scan(&nome); err != nil {
-			log.Fatal(err)
-		}
-		agentes = agentes + nome
-	}
-
-	if err := rows.Err(); err != nil {
-		log.Fatal(err)
-	}
-
-	defer rows.Close()
-
-	return agentes
-
-}
-*/
-
 package main
 
 import (
@@ -75,7 +11,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", homeHandler)
-	panic(http.ListenAndServe(":17901", nil))
+	panic(http.ListenAndServe(":8080", nil))
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
