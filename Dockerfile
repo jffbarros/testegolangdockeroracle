@@ -2,7 +2,8 @@
 # and a workspace (GOPATH) configured at /go.
 FROM golang
 
-RUN apt-get install pkgconf
+
+RUN sudo apt-get install pkg-config
 
 #RUN go get -u github.com/mattn/go-oci8
 RUN go get github.com/mattn/go-sqlite3
