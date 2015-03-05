@@ -11,7 +11,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", homeHandler)
-	panic(http.ListenAndServe(":8080", nil))
+	panic(http.ListenAndServe(":8089", nil))
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
@@ -23,13 +23,14 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 
 func executa() string {
 	os.Setenv("NLS_LANG", ".UTF8")
-	db, err := sql.Open("oci8", "system/manager@pc_joao/orc1")
+	db, err := sql.Open("oci8", "system/manager@pc_joao:1521/orc1")
 
 	defer db.Close()
 
 	rows, err := db.Query("select agn_st_nome from mgglo.glo_agentes where agn_in_codigo <= 10 order by agn_in_codigo")
 
 	if err != nil {
+		fmt.Println(err)
 		return "erro"
 	}
 
