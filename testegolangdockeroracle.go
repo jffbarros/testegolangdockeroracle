@@ -27,7 +27,7 @@ func executa() string {
 
 	defer db.Close()
 
-	rows, err := db.Query("select agn_st_nome from mgglo.glo_agentes where agn_in_codigo <= 10 order by agn_in_codigo")
+	rows, err := db.Query("select agn_st_nome from mgglo.glo_agentes where agn_in_codigo <= 11 order by agn_in_codigo")
 
 	if err != nil {
 		fmt.Println(err)
