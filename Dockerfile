@@ -6,7 +6,6 @@ FROM golang
 RUN apt-get update
 RUN apt-get install -y \
 pkg-config
-aptitude
 alien
 
 RUN wget  --no-check-certificate https://googledrive.com/host/0B1Or3zIP-XLuYVhNZmthQVBTbzQ -O oracleinstantclient.rpm
