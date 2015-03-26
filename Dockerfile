@@ -6,13 +6,21 @@ FROM golang
 RUN apt-get update
 RUN apt-get install -y \
 pkg-config
+aptitude
+alien
 
-RUN go get -u github.com/mattn/go-oci8
-RUN go get -u github.com/jffbarros/testegolangdockeroracle
-RUN go install -a github.com/jffbarros/testegolangdockeroracle
+RUN wget  --no-check-certificate https://googledrive.com/host/0B1Or3zIP-XLuYVhNZmthQVBTbzQ -O oracleinstantclient.rpm
+RUN wget  --no-check-certificate https://googledrive.com/host/0B1Or3zIP-XLuNlJ6S2ZBZkZ6MTQ -O oraclesdk.rpm
+
+RUN alien -i oracleinstantclient.rpm
+RUN alien -i oraclesdk.rpm
+
+#RUN go get -u github.com/mattn/go-oci8
+#RUN go get -u github.com/jffbarros/testegolangdockeroracle
+#RUN go install -a github.com/jffbarros/testegolangdockeroracle
 
 # Run the outyet command by default when the container starts.
-ENTRYPOINT /go/bin/testegolangdockeroracle
+#ENTRYPOINT /go/bin/testegolangdockeroracle
 
 # Document that the service listens on port 8080.
-EXPOSE 8080
+#EXPOSE 8080
