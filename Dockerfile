@@ -9,9 +9,13 @@ RUN apt-get install -y alien
 
 RUN wget  --no-check-certificate https://googledrive.com/host/0B1Or3zIP-XLuYVhNZmthQVBTbzQ -O oracleinstantclient.rpm
 RUN wget  --no-check-certificate https://googledrive.com/host/0B1Or3zIP-XLuNlJ6S2ZBZkZ6MTQ -O oraclesdk.rpm
+RUN wget  --no-check-certificate https://googledrive.com/host/0B1Or3zIP-XLuUzZtT045Y0V1RmM -O /usr/oci8.pc
 
 RUN alien -i oracleinstantclient.rpm
 RUN alien -i oraclesdk.rpm
+
+
+ENV PKG_CONFIG_PATH /usr/oci8.pc
 
 #RUN go get -u github.com/mattn/go-oci8
 #RUN go get -u github.com/jffbarros/testegolangdockeroracle
