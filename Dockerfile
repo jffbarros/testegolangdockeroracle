@@ -17,7 +17,7 @@ RUN alien -i oraclesdk.rpm
 
 ENV PKG_CONFIG_PATH /usr/oci8.pc
 
-#RUN go get -u github.com/mattn/go-oci8
+RUN go get -u github.com/mattn/go-oci8
 #RUN go get -u github.com/jffbarros/testegolangdockeroracle
 #RUN go install -a github.com/jffbarros/testegolangdockeroracle
 
