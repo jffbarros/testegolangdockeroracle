@@ -15,16 +15,15 @@ RUN wget  --no-check-certificate https://googledrive.com/host/0B1Or3zIP-XLuUzZtT
 RUN alien -i oracleinstantclient.rpm
 RUN alien -i oraclesdk.rpm
 
-
 #ENV PKG_CONFIG_PATH /usr/oci8.pc
 RUN cd /usr/lib/pkgconfig/ && curl -o oci8.pc https://raw.githubusercontent.com/wendyeq/go-oci8/master/oci8.pc
 ENV LD_LIBRARY_PATH /usr/lib:/usr/local/lib:/usr/lib/oracle/12.1/client64/lib
 RUN go get -u github.com/mattn/go-oci8
-#RUN go get -u github.com/jffbarros/testegolangdockeroracle
-#RUN go install -a github.com/jffbarros/testegolangdockeroracle
+RUN go get -u github.com/jffbarros/testegolangdockeroracle
+RUN go install -a github.com/jffbarros/testegolangdockeroracle
 
 # Run the outyet command by default when the container starts.
-#ENTRYPOINT /go/bin/testegolangdockeroracle
+ENTRYPOINT /go/bin/testegolangdockeroracle
 
 # Document that the service listens on port 8080.
-#EXPOSE 8080
+EXPOSE 8080
