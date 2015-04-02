@@ -25,5 +25,5 @@ RUN go install -a github.com/jffbarros/testegolangdockeroracle
 # Run the outyet command by default when the container starts.
 ENTRYPOINT /go/bin/testegolangdockeroracle
 
-# Document that the service listens on port 8080.
-EXPOSE 8080
+# Document that the service listens on port 8081.
+EXPOSE 8081
